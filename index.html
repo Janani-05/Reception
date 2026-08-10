@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>M.S. Sheshathri & S. Janani | Wedding Reception</title>
+  <title>M.S. Sheshathri & S. Janani | Wedding Reception Invitation</title>
   
-  <!-- Premium Fonts -->
+  <!-- Premium & Grand Calligraphy Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Great+Vibes&family=Italianno&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-magenta: #2D0217;
-      --card-magenta: #1A010D;
+      --bg-dark: #0D080A;
+      --card-bg: rgba(18, 12, 15, 0.92);
       --gold-primary: #D4AF37;
-      --gold-light: #FBF0B9;
-      --gold-grad: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF0B9 75%, #AA771C 100%);
-      --text-white: #FFFFFF;
-      --text-sub: #E2D4C9;
+      --gold-light: #FDF0A6;
+      --gold-gradient: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF0B9 75%, #AA771C 100%);
+      --text-main: #FFFFFF;
+      --text-muted: #D1C5B8;
     }
 
     * {
@@ -28,33 +28,45 @@
     }
 
     body {
-      background: radial-gradient(circle at center, var(--bg-magenta), #0A0005);
-      color: var(--text-white);
+      background-color: var(--bg-dark);
+      color: var(--text-main);
       font-family: 'Montserrat', sans-serif;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 20px 10px;
+      padding: 20px 12px;
+      position: relative;
       overflow-x: hidden;
     }
 
-    /* Floating Music Toggle */
+    /* Live Animated Gold Sparks Canvas */
+    #sparksCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Floating Audio Toggle Button */
     .music-btn {
       position: fixed;
       top: 20px;
       right: 20px;
-      width: 45px;
-      height: 45px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
-      background: var(--gold-grad);
-      border: 2px solid var(--card-magenta);
-      color: var(--card-magenta);
-      font-size: 1.2rem;
+      background: var(--gold-gradient);
+      border: 1px solid var(--gold-light);
+      color: #0D080A;
+      font-size: 1.1rem;
       cursor: pointer;
       z-index: 2000;
-      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -64,7 +76,7 @@
     .envelope-screen {
       position: fixed;
       inset: 0;
-      background: radial-gradient(circle at center, var(--bg-magenta), #0A0005);
+      background: radial-gradient(circle at center, #2D0217, #0A0005);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -75,53 +87,62 @@
     .envelope-box {
       width: 320px;
       height: 220px;
-      background: var(--card-magenta);
+      background: #1A010D;
       border: 2px solid var(--gold-primary);
-      border-radius: 12px;
-      box-shadow: 0 0 35px rgba(212, 175, 55, 0.3);
+      border-radius: 14px;
+      box-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
       display: flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      text-align: center;
     }
 
+    /* Stylish Grand Wax Seal */
     .wax-seal {
-      width: 90px;
-      height: 90px;
-      background: radial-gradient(circle, #E6C667, #8A640F);
+      width: 110px;
+      height: 110px;
+      background: radial-gradient(circle, #F7E28B, #B38728, #5E4204);
       border: 3px solid var(--gold-light);
       border-radius: 50%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.8);
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.8), inset 0 0 10px rgba(0, 0, 0, 0.5);
+      animation: pulseGlow 1.8s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      from { transform: scale(1); box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); }
+      to { transform: scale(1.05); box-shadow: 0 0 35px rgba(253, 240, 166, 0.9); }
     }
 
     .seal-monogram {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.2rem;
-      color: var(--card-magenta);
-      line-height: 1;
+      font-family: 'Italianno', cursive;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #1A010D;
+      line-height: 0.8;
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
     }
 
     .seal-tap {
       font-family: 'Cinzel', serif;
       font-size: 0.55rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      color: var(--card-magenta);
-      margin-top: 2px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #1A010D;
+      margin-top: 4px;
     }
 
-    /* Main Container & Page Cards */
+    /* Container for 4 Sequential Cards */
     .invitation-container {
       width: 100%;
-      max-width: 520px;
+      max-width: 500px;
       display: none;
       flex-direction: column;
-      gap: 30px;
+      gap: 35px;
+      z-index: 1;
       animation: fadeIn 1s ease forwards;
     }
 
@@ -130,66 +151,72 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Section Card Base */
     .section-card {
-      background: var(--card-magenta);
-      border: 1.5px solid var(--gold-primary);
+      background: var(--card-bg);
+      border: 1px solid rgba(212, 175, 55, 0.5);
       border-radius: 16px;
-      padding: 35px 25px;
+      padding: 40px 24px;
       text-align: center;
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(212, 175, 55, 0.15);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9), inset 0 0 15px rgba(212, 175, 55, 0.08);
       position: relative;
     }
 
-    /* Typography Styles matching images */
+    /* Tag Badge (#SHAMA) */
     .pill-tag {
       display: inline-block;
       border: 1px solid var(--gold-primary);
       border-radius: 20px;
       padding: 4px 18px;
       font-family: 'Cinzel', serif;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       letter-spacing: 3px;
       color: var(--gold-primary);
       text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
+    /* Page 1 Custom Monogram */
     .monogram-lg {
-      font-family: 'Great Vibes', cursive;
-      font-size: 4rem;
+      font-family: 'Italianno', cursive;
+      font-size: 5.5rem;
       color: var(--gold-light);
       margin-bottom: 15px;
-      text-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+      text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+      line-height: 0.9;
     }
 
     .invite-lead {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       letter-spacing: 2px;
-      color: var(--text-sub);
+      color: var(--text-muted);
       text-transform: uppercase;
-      line-height: 1.6;
-      margin-bottom: 20px;
+      line-height: 1.7;
+      margin-bottom: 25px;
       font-weight: 400;
     }
 
+    /* Couple Names */
     .couple-title {
       font-family: 'Cinzel', serif;
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       font-weight: 700;
       letter-spacing: 2px;
       color: var(--gold-primary);
       text-transform: uppercase;
       margin-bottom: 20px;
       text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+      line-height: 1.4;
     }
 
+    /* Decorative Diamond Divider */
     .divider {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      margin: 15px auto 20px;
-      width: 60%;
+      gap: 12px;
+      margin: 15px auto 25px;
+      width: 50%;
     }
 
     .divider::before, .divider::after {
@@ -197,27 +224,34 @@
       flex: 1;
       height: 1px;
       background: var(--gold-primary);
+      opacity: 0.7;
     }
 
     .divider-diamond {
       color: var(--gold-primary);
-      font-size: 0.8rem;
+      font-size: 0.7rem;
     }
 
+    /* Date Line */
     .date-row {
       font-size: 0.95rem;
       letter-spacing: 1px;
-      color: var(--text-white);
-      margin-bottom: 25px;
-      font-weight: 500;
+      color: var(--text-main);
+      margin-bottom: 30px;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
 
+    /* Gold Buttons */
     .gold-btn {
       display: inline-block;
-      width: 80%;
-      padding: 12px 0;
-      background: var(--gold-grad);
-      color: var(--card-magenta);
+      width: 85%;
+      padding: 14px 0;
+      background: var(--gold-gradient);
+      color: #0D080A;
       font-family: 'Cinzel', serif;
       font-weight: 700;
       font-size: 0.75rem;
@@ -225,20 +259,25 @@
       text-transform: uppercase;
       border-radius: 25px;
       text-decoration: none;
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
+      transition: transform 0.2s ease;
     }
 
-    /* Page 2 - Scratch & Timer */
+    .gold-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* Typography Headers */
     .script-header {
       font-family: 'Great Vibes', cursive;
       font-size: 2.2rem;
       color: var(--gold-light);
-      margin-bottom: 2px;
+      margin-bottom: 4px;
     }
 
     .cinzel-header {
       font-family: 'Cinzel', serif;
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       font-weight: 700;
       letter-spacing: 3px;
       color: var(--gold-primary);
@@ -247,27 +286,28 @@
     }
 
     .scratch-desc {
-      font-size: 0.8rem;
-      color: var(--text-sub);
-      margin-bottom: 20px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 25px;
       font-weight: 300;
     }
 
+    /* Scratch Frame */
     .scratch-container {
       position: relative;
       width: 290px;
-      height: 150px;
-      margin: 0 auto 30px;
-      border: 1.5px solid var(--gold-primary);
+      height: 155px;
+      margin: 0 auto 35px;
+      border: 1px solid var(--gold-primary);
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 0 20px rgba(0,0,0,0.8);
+      box-shadow: 0 0 20px rgba(0,0,0,0.9);
     }
 
     .scratch-reveal-content {
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, #3A021E, #1A000C);
+      background: radial-gradient(circle at center, #230213, #0D080A);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -279,7 +319,7 @@
     .crown-icon {
       color: var(--gold-primary);
       font-size: 1.2rem;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
     }
 
     .reveal-title {
@@ -293,20 +333,21 @@
     }
 
     .reveal-text {
-      font-size: 0.7rem;
-      color: var(--text-sub);
+      font-size: 0.68rem;
+      color: var(--text-muted);
       line-height: 1.4;
       font-weight: 300;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .pill-time {
       border: 1px solid var(--gold-primary);
       border-radius: 15px;
-      padding: 3px 12px;
-      font-size: 0.75rem;
+      padding: 4px 14px;
+      font-size: 0.72rem;
       color: var(--gold-light);
       font-weight: 500;
+      background: rgba(0, 0, 0, 0.4);
     }
 
     canvas {
@@ -320,35 +361,36 @@
     .timer-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-top: 20px;
+      gap: 12px;
+      margin-top: 25px;
     }
 
     .timer-box {
-      border: 1px solid rgba(212, 175, 55, 0.5);
+      border: 1px solid rgba(212, 175, 55, 0.4);
       border-radius: 10px;
-      padding: 15px 5px;
-      background: rgba(0, 0, 0, 0.3);
+      padding: 16px 4px;
+      background: rgba(0, 0, 0, 0.4);
     }
 
     .timer-num {
       font-family: 'Cinzel', serif;
-      font-size: 1.6rem;
+      font-size: 1.7rem;
       font-weight: 700;
       color: var(--gold-light);
       display: block;
+      line-height: 1;
     }
 
     .timer-unit {
-      font-size: 0.65rem;
+      font-size: 0.6rem;
       letter-spacing: 1.5px;
-      color: var(--text-sub);
+      color: var(--text-muted);
       text-transform: uppercase;
-      margin-top: 5px;
+      margin-top: 8px;
       display: block;
     }
 
-    /* Page 3 - Venue Details */
+    /* Venue Cards */
     .mahal-icon {
       width: 45px;
       height: 45px;
@@ -360,11 +402,12 @@
       margin: 0 auto 15px;
       color: var(--gold-primary);
       font-size: 1.2rem;
+      background: rgba(0, 0, 0, 0.3);
     }
 
     .mahal-title {
       font-family: 'Cinzel', serif;
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 700;
       letter-spacing: 2px;
       color: var(--gold-light);
@@ -374,7 +417,7 @@
 
     .location-sub {
       font-size: 0.85rem;
-      color: var(--text-sub);
+      color: var(--text-muted);
       margin-bottom: 25px;
     }
 
@@ -386,10 +429,10 @@
     }
 
     .detail-card {
-      border: 1px solid rgba(212, 175, 55, 0.4);
+      border: 1px solid rgba(212, 175, 55, 0.3);
       border-radius: 8px;
-      padding: 12px;
-      background: rgba(0,0,0,0.2);
+      padding: 14px 10px;
+      background: rgba(0, 0, 0, 0.3);
       text-align: left;
       display: flex;
       align-items: center;
@@ -402,49 +445,60 @@
     }
 
     .detail-label {
-      font-size: 0.65rem;
+      font-size: 0.6rem;
       letter-spacing: 1px;
-      color: var(--text-sub);
+      color: var(--text-muted);
       text-transform: uppercase;
       display: block;
+      margin-bottom: 2px;
     }
 
     .detail-val {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 600;
-      color: var(--text-white);
+      color: var(--text-main);
     }
 
-    /* Page 4 - Footer Quote */
+    /* Page 4 Quote */
+    .heart-top {
+      color: var(--gold-primary);
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
+
     .quote-title {
       font-family: 'Cinzel', serif;
       font-size: 0.95rem;
       letter-spacing: 1.5px;
       color: var(--gold-light);
       text-transform: uppercase;
-      line-height: 1.6;
-      margin: 15px 0 20px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-weight: 600;
     }
 
     .love-text {
       font-family: 'Great Vibes', cursive;
       font-size: 2.2rem;
       color: var(--gold-primary);
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Floating Audio Control Button -->
+  <!-- Live Canvas for Fire Sparks -->
+  <canvas id="sparksCanvas"></canvas>
+
+  <!-- Audio Toggle -->
   <button class="music-btn" id="mBtn" onclick="toggleAudio()">🎵</button>
 
-  <!-- Audio Element -->
+  <!-- Background Audio -->
   <audio id="bgAudio" loop>
     <source src="Seelay-Seelay.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- Envelope Screen -->
+  <!-- Interactive Wax Envelope Screen with Grand Italianno Font Monogram -->
   <div class="envelope-screen" id="envelopeScreen">
     <div class="envelope-box" onclick="openEnvelope()">
       <div class="wax-seal">
@@ -454,10 +508,10 @@
     </div>
   </div>
 
-  <!-- Main Multi-Page Card Scroll Structure -->
+  <!-- Main Multi-Card Display Container -->
   <div class="invitation-container" id="invitationContainer">
     
-    <!-- PAGE 1: Intro Invitation Card -->
+    <!-- PAGE 1: Intro Card -->
     <div class="section-card">
       <div class="pill-tag">#SHAMA</div>
       <div class="monogram-lg">S & J</div>
@@ -470,7 +524,9 @@
         <span class="divider-diamond">◆</span>
       </div>
       
-      <div class="date-row">📅 Wednesday, 16th September 2026</div>
+      <div class="date-row">
+        <span>📅</span> Wednesday, 16th September 2026
+      </div>
       
       <a href="#scratch-page" class="gold-btn">REVEAL SPECIAL INVITATION ∨</a>
     </div>
@@ -489,7 +545,7 @@
           <p class="reveal-text">We request the pleasure of your company at our Wedding Reception as we embark on this beautiful journey of togetherness.</p>
           <span class="pill-time">⏰ 11:00 AM Onwards</span>
         </div>
-        <canvas id="scratchCanvas" width="290" height="150"></canvas>
+        <canvas id="scratchCanvas" width="290" height="155"></canvas>
       </div>
 
       <div class="script-header">The Grand Event Begins In</div>
@@ -503,7 +559,7 @@
       </div>
     </div>
 
-    <!-- PAGE 3: Reception Details & Map Location -->
+    <!-- PAGE 3: Reception Venue Details -->
     <div class="section-card">
       <div class="script-header">Where & When</div>
       <div class="cinzel-header">RECEPTION DETAILS</div>
@@ -534,9 +590,9 @@
       <a href="https://www.google.com/maps/place/Sneha+Mahal/@10.5287733,77.9524451,17z/data=!3m1!4b1!4m6!3m5!1s0x3baa02f4a020bb91:0x8c3de67eb8088821!8m2!3d10.5287733!4d77.9524451!16s%2Fg%2F1hd_0kqdw!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgwNS4xIKXMDSoASAFQAw%3D%3D" target="_blank" class="gold-btn">🗺️ OPEN LOCATION IN GOOGLE MAPS</a>
     </div>
 
-    <!-- PAGE 4: Final Message & Quote Card -->
+    <!-- PAGE 4: Final Quote -->
     <div class="section-card">
-      <div style="color: var(--gold-primary); font-size: 1.5rem; margin-bottom: 10px;">💛</div>
+      <div class="heart-top">💛</div>
       
       <div class="quote-title">"YOUR PRESENCE WILL MAKE OUR CELEBRATION TRULY SPECIAL"</div>
       
@@ -548,7 +604,64 @@
   </div>
 
   <script>
-    // Audio Toggle Handler
+    // Live Fire Sparks Animation Background Engine
+    const sparksCanvas = document.getElementById('sparksCanvas');
+    const sCtx = sparksCanvas.getContext('2d');
+    let sparkParticles = [];
+
+    function resizeSparks() {
+      sparksCanvas.width = window.innerWidth;
+      sparksCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeSparks);
+    resizeSparks();
+
+    class Spark {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * sparksCanvas.width;
+        this.y = sparksCanvas.height + Math.random() * 50;
+        this.size = Math.random() * 2.5 + 1;
+        this.speedY = Math.random() * 1.5 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.8;
+        this.opacity = Math.random() * 0.8 + 0.2;
+        this.fade = Math.random() * 0.005 + 0.002;
+      }
+      update() {
+        this.y -= this.speedY;
+        this.x += this.speedX;
+        this.opacity -= this.fade;
+        if (this.y < -10 || this.opacity <= 0) {
+          this.reset();
+        }
+      }
+      draw() {
+        sCtx.beginPath();
+        sCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        sCtx.fillStyle = `rgba(253, 240, 166, ${this.opacity})`;
+        sCtx.shadowBlur = 8;
+        sCtx.shadowColor = '#D4AF37';
+        sCtx.fill();
+      }
+    }
+
+    for (let i = 0; i < 50; i++) {
+      sparkParticles.push(new Spark());
+    }
+
+    function animateSparks() {
+      sCtx.clearRect(0, 0, sparksCanvas.width, sparksCanvas.height);
+      sparkParticles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animateSparks);
+    }
+    animateSparks();
+
+    // Envelope & Audio Logic
     const audio = document.getElementById('bgAudio');
     const mBtn = document.getElementById('mBtn');
 
@@ -559,11 +672,10 @@
         document.getElementById('invitationContainer').style.display = 'flex';
       }, 800);
 
-      // Play Seelay Seelay Audio
       audio.play().then(() => {
         mBtn.innerText = '🔊';
       }).catch(err => {
-        console.log("Autoplay blocked");
+        console.log("Audio play blocked");
       });
 
       initScratch();
@@ -579,13 +691,13 @@
       }
     }
 
-    // Gold Scratch Card Handler
+    // Gold Foil Scratching Card
     function initScratch() {
       const canvas = document.getElementById('scratchCanvas');
       const ctx = canvas.getContext('2d');
       let isScratching = false;
 
-      const grad = ctx.createLinearGradient(0, 0, 290, 150);
+      const grad = ctx.createLinearGradient(0, 0, 290, 155);
       grad.addColorStop(0, '#BF953F');
       grad.addColorStop(0.3, '#FCF6BA');
       grad.addColorStop(0.6, '#B38728');
@@ -596,7 +708,7 @@
       ctx.fillStyle = '#1A010D';
       ctx.font = 'bold 12px Cinzel, serif';
       ctx.textAlign = 'center';
-      ctx.fillText('SCRATCH HERE TO UNVEIL', 145, 80);
+      ctx.fillText('SCRATCH HERE TO UNVEIL', 145, 82);
 
       function scratch(e) {
         if (!isScratching) return;
@@ -618,7 +730,7 @@
       canvas.addEventListener('touchmove', scratch);
     }
 
-    // Countdown Timer (Target: Sept 16, 2026 @ 11:00 AM)
+    // Countdown Timer Target
     const targetDate = new Date('September 16, 2026 11:00:00').getTime();
 
     function updateTimer() {
