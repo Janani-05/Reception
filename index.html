@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Reception Invitation | #ShaMa</title>
+  <style>
+    :root {
+      --magenta: #4A0E2E;
+      --deep-magenta: #2A0518;
+      --gold: #D4AF37;
+      --light-gold: #F3E5AB;
+      --white: #FFFFFF;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+    }
+
+    body {
+      background: radial-gradient(circle, var(--magenta), var(--deep-magenta));
+      color: var(--light-gold);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    .card-container {
+      width: 100%;
+      max-width: 500px;
+      background: var(--deep-magenta);
+      border: 3px solid var(--gold);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 15px var(--gold);
+      text-align: center;
+      position: relative;
+    }
+
+    h1 {
+      color: var(--gold);
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+    }
+
+    .sub-title {
+      font-size: 0.9rem;
+      color: var(--light-gold);
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    /* Scratch Card Section */
+    .scratch-container {
+      position: relative;
+      width: 280px;
+      height: 120px;
+      margin: 20px auto;
+      border: 2px solid var(--gold);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .scratch-content {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: var(--magenta);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: var(--gold);
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+    }
+
+    /* Countdown Timer */
+    .countdown-title {
+      font-size: 1rem;
+      margin-top: 25px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .timer {
+      display: flex;
+      justify-content: space-around;
+      margin: 15px 0;
+      background: rgba(74, 14, 46, 0.6);
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid var(--gold);
+    }
+
+    .time-box {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .time-num {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: var(--white);
+    }
+
+    .time-label {
+      font-size: 0.7rem;
+      color: var(--gold);
+    }
+
+    /* Details Section */
+    .details {
+      margin-top: 20px;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: linear-gradient(45deg, #BF953F, #FCF6BA, #B38728);
+      color: var(--deep-magenta);
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 25px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      transition: transform 0.2s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card-container">
+    <h1>Royal Reception</h1>
+    <p class="sub-title">Cordially Inviting You All</p>
+
+    <div class="details">
+      <p><b>Date:</b> September 16, 2026</p>
+      <p><b>Time:</b> 11:00 AM Onwards</p>
+      <p><b>Venue:</b> Sneha Mahal, Vedasandur</p>
+    </div>
+
+    <!-- Interactive Scratch Card -->
+    <div class="scratch-container">
+      <div class="scratch-content">
+        <h2 style="font-size: 1.2rem; color: #FFF;">Sheshathri & Janani</h2>
+        <p style="font-size: 0.8rem; margin-top: 5px;">#ShaMa Wedding Reception</p>
+      </div>
+      <canvas id="scratchCanvas" width="280" height="120"></canvas>
+    </div>
+    <p style="font-size: 0.75rem; color: #D4AF37;">✨ Scratch above to reveal our names ✨</p>
+
+    <!-- Live Countdown -->
+    <div class="countdown-title">Countdown to Celebration</div>
+    <div class="timer">
+      <div class="time-box"><span id="days" class="time-num">00</span><span class="time-label">Days</span></div>
+      <div class="time-box"><span id="hours" class="time-num">00</span><span class="time-label">Hours</span></div>
+      <div class="time-box"><span id="mins" class="time-num">00</span><span class="time-label">Mins</span></div>
+      <div class="time-box"><span id="secs" class="time-num">00</span><span class="time-label">Secs</span></div>
+    </div>
+
+    <!-- Map Link -->
+    <a href="https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqEAgBEC4YrwEYxwEYgAQYjgUyCggAEAAY4wIYgAQyEAgBEC4YrwEYxwEYgAQYjgUyBggCEEUYOTIHCAMQABiABDIICAQQABgWGB7SAQg4NTYwajBqN6gCCLACAfEFoqtOvsbZ6Bc&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KZG7IKD0Aqo7MSGICLh-5j2M&daddr=Kalanjipatty,+Vedasandur,+Tamil+Nadu+624710" target="_blank" class="btn">📍 Navigate to Venue</a>
+  </div>
+
+  <script>
+    // Scratch Card Functionality
+    const canvas = document.getElementById('scratchCanvas');
+    const ctx = canvas.getContext('2d');
+    let isDrawing = false;
+
+    // Create Gold Metallic Overlay
+    const grad = ctx.createLinearGradient(0, 0, 280, 120);
+    grad.addColorStop(0, '#D4AF37');
+    grad.addColorStop(0.5, '#FFF8DC');
+    grad.addColorStop(1, '#AA771C');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = '#2A0518';
+    ctx.font = '14px Georgia';
+    ctx.textAlign = 'center';
+    ctx.fillText('SCRATCH HERE', 140, 65);
+
+    function scratch(e) {
+      if (!isDrawing) return;
+      const rect = canvas.getBoundingClientRect();
+      const x = (e.clientX || e.touches[0].clientX) - rect.left;
+      const y = (e.clientY || e.touches[0].clientY) - rect.top;
+      
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.beginPath();
+      ctx.arc(x, y, 15, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    canvas.addEventListener('mousedown', () => isDrawing = true);
+    canvas.addEventListener('mouseup', () => isDrawing = false);
+    canvas.addEventListener('mousemove', scratch);
+
+    canvas.addEventListener('touchstart', () => isDrawing = true);
+    canvas.addEventListener('touchend', () => isDrawing = false);
+    canvas.addEventListener('touchmove', scratch);
+
+    // Countdown Timer Functionality
+    const targetDate = new Date('September 16, 2026 11:00:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        document.getElementById('days').innerText = Math.floor(difference / (1000 * 60 * 60 * 24));
+        document.getElementById('hours').innerText = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById('mins').innerText = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        document.getElementById('secs').innerText = Math.floor((difference % (1000 * 60)) / 1000);
+      }
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
