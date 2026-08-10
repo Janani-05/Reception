@@ -209,6 +209,11 @@
       line-height: 1.4;
     }
 
+    .ampersand {
+      display: inline-block;
+      margin: 0 6px;
+    }
+
     /* Decorative Diamond Divider */
     .divider {
       display: flex;
@@ -232,7 +237,7 @@
       font-size: 0.7rem;
     }
 
-    /* Date Line */
+    /* Date Line & Vector Icons */
     .date-row {
       font-size: 0.95rem;
       letter-spacing: 1px;
@@ -243,6 +248,13 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+    }
+
+    .calendar-icon-svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--gold-primary);
+      vertical-align: middle;
     }
 
     /* Gold Buttons */
@@ -442,6 +454,8 @@
     .detail-icon {
       color: var(--gold-primary);
       font-size: 1.1rem;
+      display: flex;
+      align-items: center;
     }
 
     .detail-label {
@@ -518,14 +532,15 @@
       
       <p class="invite-lead">TOGETHER WITH THEIR FAMILIES, INVITE YOU TO CELEBRATE THE WEDDING RECEPTION OF</p>
       
-      <div class="couple-title">M.S. SHESHATHRI & S. JANANI</div>
+      <div class="couple-title">M.S. SHESHATHRI <span class="ampersand">&amp;</span>&nbsp;S. JANANI</div>
       
       <div class="divider">
         <span class="divider-diamond">◆</span>
       </div>
       
       <div class="date-row">
-        <span>📅</span> Wednesday, 16th September 2026
+        <svg class="calendar-icon-svg" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+        Wednesday, 16th September 2026
       </div>
       
       <a href="#scratch-page" class="gold-btn">REVEAL SPECIAL INVITATION ∨</a>
@@ -572,7 +587,9 @@
 
       <div class="details-grid">
         <div class="detail-card">
-          <span class="detail-icon">📅</span>
+          <span class="detail-icon">
+            <svg class="calendar-icon-svg" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+          </span>
           <div>
             <span class="detail-label">DATE</span>
             <span class="detail-val">16 September 2026</span>
