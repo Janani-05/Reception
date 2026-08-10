@@ -196,7 +196,7 @@
       font-weight: 400;
     }
 
-    /* Couple Names */
+    /* Responsive Couple Names */
     .couple-title {
       font-family: 'Cinzel', serif;
       font-size: 1.35rem;
@@ -206,12 +206,25 @@
       text-transform: uppercase;
       margin-bottom: 20px;
       text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-      line-height: 1.4;
+      line-height: 1.5;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 8px 12px;
     }
 
     .ampersand {
-      display: inline-block;
-      margin: 0 6px;
+      color: var(--gold-primary);
+      font-weight: 700;
+    }
+
+    /* Force clean 3-line layout on mobile */
+    @media (max-width: 480px) {
+      .couple-title span {
+        display: block;
+        width: 100%;
+      }
     }
 
     /* Decorative Diamond Divider */
@@ -532,7 +545,11 @@
       
       <p class="invite-lead">TOGETHER WITH THEIR FAMILIES, INVITE YOU TO CELEBRATE THE WEDDING RECEPTION OF</p>
       
-      <div class="couple-title">M.S. SHESHATHRI <span class="ampersand">&amp;</span>&nbsp;S. JANANI</div>
+      <div class="couple-title">
+        <span>M.S. SHESHATHRI</span>
+        <span class="ampersand">&amp;</span>
+        <span>S. JANANI</span>
+      </div>
       
       <div class="divider">
         <span class="divider-diamond">◆</span>
